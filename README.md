@@ -8,10 +8,10 @@ A personal collection of reusable standards, templates, and guidelines for build
 
 This repository helps me standardize how I:
 
-* Plan features
-* Structure projects
-* Design interfaces
-* Document decisions
+- Plan features
+- Structure projects
+- Design interfaces
+- Document decisions
 
 ---
 
@@ -19,11 +19,31 @@ This repository helps me standardize how I:
 
 This repository is organized by categories such as:
 
-* Documentation
-* Design
-* Project structure
+- Documentation
+- Design
+- Project structure
 
 Each section contains reusable templates or guidelines.
+
+### Example
+
+```text
+engineering-playbook/
+
+  documentation/
+    features/
+      feature-template.md
+    api/
+      api-template.md
+
+  design-standards/
+    viewport-breakpoints.md
+    form-patterns.md
+
+  project-standards/
+    frontend.md
+    backend.md
+```
 
 ---
 
