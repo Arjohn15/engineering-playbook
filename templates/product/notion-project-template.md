@@ -20,6 +20,8 @@ Inside it, create the following sub-pages:
 - Project Dashboard
 - Product Vision
 - Requirements Overview
+- System Design
+- Technical
 - Product Backlog
 - Roadmap
 
@@ -42,6 +44,8 @@ Inside it, create the following sub-pages:
 
 - Product Vision
 - Requirements Overview
+- System Design
+- Technical
 - Product Backlog
 - Roadmap
 
@@ -151,7 +155,50 @@ Track quality attributes:
 
 ---
 
-## 5. Product Backlog (Execution Layer)
+## 5. System Design
+
+**Purpose:** Define the target technical design before implementation.
+
+Include the following:
+
+- System architecture diagram (high-level components and boundaries)
+- ERD / data model (entities, relationships, key constraints)
+- API design (endpoints, request/response contracts, auth, error model)
+- Integration map (internal and external dependencies)
+- Key architectural decisions (link to decision log if available)
+
+Recommended sub-pages or blocks:
+
+- Architecture Overview
+- Data Design (ERD)
+- API Specifications
+- Integration & Dependencies
+
+---
+
+## 6. Technical
+
+**Purpose:** Capture engineering execution standards and technical guardrails.
+
+Include the following:
+
+- Coding standards (naming, formatting, code organization)
+- Branching and pull request conventions
+- Testing strategy (unit, integration, e2e expectations)
+- Definition of Done (technical checklist)
+- Environments and configuration guidelines
+- CI/CD and release notes process (if applicable)
+
+Recommended sub-pages or blocks:
+
+- Coding Standards
+- Development Workflow
+- Testing Standards
+- CI/CD & Release Process
+
+---
+
+## 7. Product Backlog (Execution Layer)
 
 **Purpose:** Manage all actionable work items.
 
@@ -180,7 +227,7 @@ Create a database with:
 
 ---
 
-## 6. Roadmap
+## 8. Roadmap
 
 **Purpose:** High-level delivery timeline.
 
@@ -191,19 +238,21 @@ Options:
 
 ---
 
-## 7. Workflow (How to Use)
+## 9. Workflow (How to Use)
 
 1. Duplicate the template for a new project
 2. Define the **Product Vision first**
 3. Add high-level **Requirements**
-4. Break work into **Backlog items**
-5. Link items using relations
-6. Execute work in your delivery tool (e.g., Jira)
-7. Continuously validate against the Vision
+4. Define **System Design** (architecture, ERD, API)
+5. Define **Technical** standards and workflow
+6. Break work into **Backlog items**
+7. Link items using relations
+8. Execute work in your delivery tool (e.g., Jira)
+9. Continuously validate against the Vision and Design
 
 ---
 
-## 8. Key Principles
+## 10. Key Principles
 
 - Notion = **strategy, documentation, planning**
 - Jira = **execution and tracking**
@@ -212,19 +261,21 @@ Options:
 
 ---
 
-## 9. Review Cadence
+## 11. Review Cadence
 
 - Review Product Vision every 1–3 months
+- Review System Design whenever major architecture changes occur
+- Keep Technical standards updated with team practices
 - Update backlog continuously
 - Refine requirements as needed
 
 ---
 
-## 10. Notes
+## 12. Notes
 
 This structure balances:
 
-- Stability (Vision, Requirements)
+- Stability (Vision, Requirements, Design)
 - Flexibility (Backlog, Agile execution)
 
 It is suitable for:
