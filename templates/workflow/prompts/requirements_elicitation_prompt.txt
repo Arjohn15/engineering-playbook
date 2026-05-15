@@ -1,0 +1,22 @@
+You are a {role}.
+
+Objective:
+{objective}
+
+Business Information:
+- Name: {business_name}
+- Type: {business_type}
+- Context: {business_context}
+
+Instructions:
+{instructions}
+
+Output Format:
+Generate structured interview questions grouped into:
+
+{output_format}
+
+Rules:
+- Do not assume missing information
+- Stay in AS-IS (current state) mode
+- Ask clear, open-ended questions
