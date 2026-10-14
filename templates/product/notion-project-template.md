@@ -58,7 +58,7 @@ Optional:
 
 ## 3. Product Vision (Strategic Anchor)
 
-**Purpose:** Define the “why” behind the project.
+**Purpose:** Define the "why" behind the project.
 This should remain relatively stable over time.
 
 ### Vision Statement
@@ -78,7 +78,7 @@ Unlike [alternatives], it [key differentiator].
 - Problem 1
 - Problem 2
 
-### High-Level Features (5–8 max)
+### High-Level Features (5-8 max)
 
 - Feature Area 1
 - Feature Area 2
@@ -121,7 +121,7 @@ Create a table with:
 | -------------- | --------------------------------------- |
 | Requirement ID | Text                                    |
 | Description    | Text                                    |
-| Priority       | Select (Must / Should / Could / Won’t)  |
+| Priority       | Select (Must / Should / Could / Won't)  |
 | Status         | Select (Draft / Approved / Implemented) |
 | Linked Backlog | Relation                                |
 
@@ -209,7 +209,7 @@ Create a database with:
 | Title               | User Story                               |
 | Type                | Epic / Feature / Story / Bug / Tech Debt |
 | Priority            | Select or Number                         |
-| MoSCoW              | Must / Should / Could / Won’t            |
+| MoSCoW              | Must / Should / Could / Won't            |
 | Acceptance Criteria | Text                                     |
 | Effort              | Story Points                             |
 | Status              | To Do / In Progress / Review / Done      |
@@ -263,7 +263,7 @@ Options:
 
 ## 11. Review Cadence
 
-- Review Product Vision every 1–3 months
+- Review Product Vision every 1-3 months
 - Review System Design whenever major architecture changes occur
 - Keep Technical standards updated with team practices
 - Update backlog continuously
@@ -284,7 +284,3 @@ It is suitable for:
 - Internal tools
 - Product development
 - Cross-functional initiatives
-
----
-
-**Source:** Adapted and cleaned from internal AI-generated guideline

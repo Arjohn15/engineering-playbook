@@ -1,0 +1,224 @@
+openapi: 3.0.3
+info:
+  title: "[Project Name] API"
+  version: 1.0.0
+  description: "RESTful API documentation for [Project Name] providing authentication, core domain resources, and data management."
+
+servers:
+  - url: http://localhost:3001/api/v1
+    description: Local development server
+  - url: https://api.example.com/api/v1
+    description: Production API gateway
+
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Returns service liveness, uptime, and database connectivity status.
+      tags:
+        - Health
+      responses:
+        "200":
+          description: Service is healthy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+        "503":
+          description: Service or database is unreachable.
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+
+  /items:
+    get:
+      summary: List items
+      description: Retrieves a paginated list of items belonging to the authenticated user.
+      tags:
+        - Items
+      security:
+        - BearerAuth: []
+        - CookieAuth: []
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+      responses:
+        "200":
+          description: List of items retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ItemResponse"
+                  total:
+                    type: integer
+                    example: 42
+                  page:
+                    type: integer
+                    example: 1
+                  limit:
+                    type: integer
+                    example: 20
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+    post:
+      summary: Create item
+      description: Creates a new resource.
+      tags:
+        - Items
+      security:
+        - BearerAuth: []
+        - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateItemRequest"
+      responses:
+        "201":
+          description: Resource created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ItemResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: access_token
+
+  responses:
+    BadRequest:
+      description: Invalid request payload or validation failed.
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/ProblemDetails"
+
+    Unauthorized:
+      description: Authentication is missing or invalid.
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/ProblemDetails"
+
+    NotFound:
+      description: Requested resource was not found.
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/ProblemDetails"
+
+  schemas:
+    # Standard RFC 7807 / RFC 9457 Problem Details Schema
+    ProblemDetails:
+      type: object
+      required:
+        - type
+        - title
+        - status
+      properties:
+        type:
+          type: string
+          format: uri
+          example: "https://errors.example.com/validation-error"
+        title:
+          type: string
+          example: "Validation Error"
+        status:
+          type: integer
+          example: 400
+        detail:
+          type: string
+          example: "The request payload failed schema validation."
+        instance:
+          type: string
+          example: "/api/v1/items"
+        invalidParams:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: "name"
+              reason:
+                type: string
+                example: "Must not be empty."
+
+    CreateItemRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          example: "Savings Account"
+        description:
+          type: string
+          maxLength: 500
+          example: "Primary emergency fund savings"
+
+    ItemResponse:
+      type: object
+      required:
+        - id
+        - name
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "8f3b23c2-d3e9-467f-85d1-bc7e259e8f19"
+        name:
+          type: string
+          example: "Savings Account"
+        description:
+          type: string
+          nullable: true
+          example: "Primary emergency fund savings"
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
