@@ -2,7 +2,7 @@
 
 A personal, evolving collection of **standards, architecture blueprints, templates, and guidelines** to build consistent, maintainable full-stack applications efficiently.
 
-This is my personal reference for reusable patterns, project architectures, and engineering workflows across my projects.
+This is my personal reference for reusable patterns, project architectures, and engineering workflows across my projects. While tailored to how I build software, anyone is welcome to explore, use, or adapt these templates and guidelines for their own work.
 
 ---
 
@@ -11,6 +11,7 @@ This is my personal reference for reusable patterns, project architectures, and 
 - **Personal Reference:** Keep my architectural, coding, and UI conventions organized in one place.
 - **Speed & Consistency:** Scaffold new frontend and backend modules using proven blueprints without starting from scratch.
 - **Quality Guardrails:** Follow strict type safety, RFC 7807 problem details, design system tokens, and accessibility principles.
+- **Open Resource:** Share practical templates and standards that others can freely reference, copy, or adapt.
 - **Living Knowledge Base:** Evolve and refine patterns, decision records, and prompts as I build more software.
 
 ---
@@ -89,3 +90,13 @@ engineering-playbook/
    - Set up backend modules following the [Backend Structure Standards](standards/architecture/backend-structure.md) and the [NestJS Module Blueprint](templates/backend/nest-module-blueprint.md).
    - Set up frontend features following the [Frontend Structure Standards](standards/architecture/frontend-structure.md) and the [Next.js Feature Blueprint](templates/frontend/feature-module-blueprint.md).
    - Follow the [Design System & UI Standards](standards/design/ui-standards.md) for components and interaction feedback.
+
+---
+
+## 🤝 Using This Playbook
+
+While this playbook is organized around my personal workflow and preferences, anyone is free to use it:
+
+- **Borrow Templates:** Copy any files from [`templates/`](templates/) directly into your project.
+- **Adopt Standards:** Use the [architecture](standards/architecture/) and [UI guidelines](standards/design/ui-standards.md) as a starting baseline.
+- **Fork & Customize:** Fork this repository and adjust the rules to match your own preferred stack and engineering habits.
